@@ -13,4 +13,30 @@
     <string name="beverage_edit_text">Water</string>
     <string name="dessert_edit_text">Ice cream</string>
     <string name="main_dish_text">Fish</string>
+    <string name="beverage">Beverage</string>
+    <string name="beverage_placeholder">beverage</string>
+    <string name="dessert">Dessert</string>
+    <string name="dessert_placeholder">dessert</string>
+    <string name="main">Main Dish</string>
+    <string name="main_dish_placeholder">Main dish</string>
+    <string name="order_placeholder">1000</string>
+    <string name="table_placeholder">1</string>
+    <string name="table">Table</string>
+    <string name="show_orders_button">Show orders</string>
+    <string name="toast_create_success">Order created successfully</string>
+    <string name="toast_create_error">Failed to create order</string>
+
+    <string-array name="waiters">
+        <item>Waldo</item>
+        <item>Maria</item>
+        <item>Shady</item>
+        <item>Kizumi</item>
+    </string-array>
+
+    <string-array name="tables">
+        <item>Table 1</item>
+        <item>Table 2</item>
+        <item>Table 3</item>
+        <item>Table 4</item>
+    </string-array>
 </resources>

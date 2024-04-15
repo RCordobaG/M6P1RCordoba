@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
 import com.rcordoba.m6p1rcordoba.R
 import com.rcordoba.m6p1rcordoba.application.OrdersDBApp
@@ -77,18 +78,25 @@ class QuestionnaireFragment : Fragment() {
 
                     withContext(Dispatchers.Main){
                     }
+                    Toast.makeText(requireContext(),getString(R.string.toast_create_success),Toast.LENGTH_SHORT).show()
                 }
 
             }catch(e: IOException) {
                 e.printStackTrace()
+                Toast.makeText(requireContext(),
+                    getString(R.string.toast_create_error),Toast.LENGTH_SHORT).show()
 
             }
 
+
+
+        }
+
+        binding.showRecyclerButton.setOnClickListener {
             parentFragmentManager.beginTransaction()
                 .replace(R.id.fragmentContainerView,orderListFragment.newInstance())
                 .addToBackStack("orderListFragment")
                 .commit()
-
         }
     }
 
