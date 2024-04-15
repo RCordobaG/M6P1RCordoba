@@ -29,7 +29,6 @@ class OrderAdapter (private val onOrderClicked : (OrderEntity) -> Unit) : Recycl
 
     fun updateList(list: List<OrderEntity>){
         orders = list
-        Log.d("Anos del guille","${orders}")
         notifyDataSetChanged()
     }
 }

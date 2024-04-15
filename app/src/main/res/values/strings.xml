@@ -25,12 +25,13 @@
     <string name="show_orders_button">Show orders</string>
     <string name="toast_create_success">Order created successfully</string>
     <string name="toast_create_error">Failed to create order</string>
+    <string name="waiter_placeholder_text">waiterPlaceholder</string>
 
     <string-array name="waiters">
         <item>Waldo</item>
         <item>Maria</item>
         <item>Shady</item>
-        <item>Kizumi</item>
+        <item>Kazumi</item>
     </string-array>
 
     <string-array name="tables">

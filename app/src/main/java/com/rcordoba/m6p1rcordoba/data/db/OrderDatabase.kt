@@ -9,7 +9,7 @@ import com.rcordoba.m6p1rcordoba.data.db.model.OrderEntity
 
 @Database(
     entities = [OrderEntity::class],
-    version = 1,
+    version = 2,
     exportSchema = true
 )
 abstract class OrderDatabase : RoomDatabase() {

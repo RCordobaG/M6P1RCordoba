@@ -63,7 +63,8 @@ class QuestionnaireFragment : Fragment() {
                 binding.mainDishEditText.text.toString(),
                 binding.beverageEditText.text.toString(),
                 binding.dessertEditText.text.toString(),
-                0
+                binding.tableSpinner.selectedItemPosition,
+                binding.waiterSpinner.selectedItem.toString()
             )
 
             try {

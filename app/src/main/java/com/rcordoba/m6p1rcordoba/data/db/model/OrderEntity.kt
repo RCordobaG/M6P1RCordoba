@@ -17,5 +17,7 @@ data class OrderEntity (
     @ColumnInfo (name = "dessert")
     var dessert : String,
     @ColumnInfo (name = "table")
-    var tableNumber : Int
+    var tableNumber : Int,
+    @ColumnInfo (name = "waiter")
+    var waiterName : String
 )

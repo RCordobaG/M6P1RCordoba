@@ -39,7 +39,7 @@
                 android:text="@string/order_placeholder"
                 android:textAlignment="center"
                 android:textSize="48sp"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/waiterRecyclerText"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/orderTextView" />
 
@@ -48,24 +48,21 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="15dp"
-                android:layout_marginEnd="10dp"
+                android:layout_marginEnd="25dp"
                 android:text="@string/table"
                 android:textAlignment="textEnd"
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
+            <ImageView
                 android:id="@+id/tableNumberTextView"
-                android:layout_width="50dp"
-                android:layout_height="wrap_content"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="10dp"
                 android:layout_marginBottom="10dp"
                 android:gravity="center"
-                android:text="@string/table_placeholder"
-                android:textAlignment="center"
-                android:textSize="34sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tableText" />
@@ -102,7 +99,7 @@
                 android:text="@string/beverage"
                 android:textAlignment="textStart"
                 android:textSize="14sp"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/waiterRecyclerText"
                 app:layout_constraintStart_toStartOf="@+id/dessertRecyclerText"
                 app:layout_constraintTop_toBottomOf="@+id/dessertRecyclerText" />
 
@@ -148,7 +145,29 @@
                 app:layout_constraintStart_toEndOf="@+id/beverageRecyclerText"
                 app:layout_constraintTop_toTopOf="@+id/beverageRecyclerText" />
 
+            <TextView
+                android:id="@+id/waiterRecyclerText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="100dp"
+                android:layout_marginBottom="10dp"
+                android:text="@string/waiter_text"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <TextView
+                android:id="@+id/waiterRecyclerTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="30dp"
+                android:layout_marginBottom="10dp"
+                android:text="@string/waiter_placeholder_text"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/waiterRecyclerText" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
