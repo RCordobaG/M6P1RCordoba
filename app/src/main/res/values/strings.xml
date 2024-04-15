@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">M6P1RCordoba</string>
+    <string name="order_number_text">Order Number</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="beverage_text">Beverage</string>
+    <string name="send_button_text">Send</string>
+    <string name="dessert_text">Dessert</string>
+    <string name="main_course_text">Main course</string>
+    <string name="table_text">Table</string>
+    <string name="waiter_text">Waiter</string>
+    <string name="new_order_text">New order</string>
+    <string name="beverage_edit_text">Water</string>
+    <string name="dessert_edit_text">Ice cream</string>
+    <string name="main_dish_text">Fish</string>
+</resources>
