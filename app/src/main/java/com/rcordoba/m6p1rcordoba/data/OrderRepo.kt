@@ -1,4 +1,4 @@
-package com.rcordoba.m6p1rcordoba.data.db
+package com.rcordoba.m6p1rcordoba.data
 
 import com.rcordoba.m6p1rcordoba.data.db.OrderDAO
 import com.rcordoba.m6p1rcordoba.data.db.model.OrderEntity

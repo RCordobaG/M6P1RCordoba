@@ -1,5 +1,6 @@
 package com.rcordoba.m6p1rcordoba.ui
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -28,6 +29,7 @@ class OrderAdapter (private val onOrderClicked : (OrderEntity) -> Unit) : Recycl
 
     fun updateList(list: List<OrderEntity>){
         orders = list
+        Log.d("Anos del guille","${orders}")
         notifyDataSetChanged()
     }
 }
