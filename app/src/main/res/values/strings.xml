@@ -46,6 +46,7 @@
     <string name="dialog_delete_error">Error deleting name</string>
     <string name="dialog_delete_cancel">Cancel</string>
     <string name="order">Order</string>
+    <string name="order_deleted">Order deleted</string>
 
     <string-array name="waiters">
         <item>Waldo</item>

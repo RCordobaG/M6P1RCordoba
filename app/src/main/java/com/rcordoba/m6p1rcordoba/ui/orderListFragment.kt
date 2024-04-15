@@ -10,6 +10,7 @@ import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.snackbar.Snackbar
+import com.rcordoba.m6p1rcordoba.R
 import com.rcordoba.m6p1rcordoba.application.OrdersDBApp
 import com.rcordoba.m6p1rcordoba.data.OrderRepo
 import com.rcordoba.m6p1rcordoba.data.db.model.OrderEntity
@@ -83,7 +84,7 @@ class orderListFragment : Fragment() {
     }
 
     private fun message(text: String) {
-        Toast.makeText(requireContext(),"text",Toast.LENGTH_SHORT).show()
+        Toast.makeText(requireContext(), getString(R.string.order_deleted),Toast.LENGTH_SHORT).show()
     }
 
     companion object {
