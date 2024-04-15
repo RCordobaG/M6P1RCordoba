@@ -1,4 +1,4 @@
-package com.rcordoba.m6p1rcordoba.data.model
+package com.rcordoba.m6p1rcordoba.data.db.model
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

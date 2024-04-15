@@ -1,7 +1,7 @@
-package com.rcordoba.m6p1rcordoba.data
+package com.rcordoba.m6p1rcordoba.data.db
 
-import com.rcordoba.m6p1rcordoba.data.OrderDAO
-import com.rcordoba.m6p1rcordoba.data.model.OrderEntity
+import com.rcordoba.m6p1rcordoba.data.db.OrderDAO
+import com.rcordoba.m6p1rcordoba.data.db.model.OrderEntity
 
 class OrderRepo (private val dao: OrderDAO){
 

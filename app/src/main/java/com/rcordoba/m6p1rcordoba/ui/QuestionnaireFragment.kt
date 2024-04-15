@@ -1,12 +1,21 @@
 package com.rcordoba.m6p1rcordoba.ui
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.lifecycleScope
 import com.rcordoba.m6p1rcordoba.R
+import com.rcordoba.m6p1rcordoba.data.db.OrderRepo
+import com.rcordoba.m6p1rcordoba.data.db.model.OrderEntity
 import com.rcordoba.m6p1rcordoba.databinding.FragmentQuestionnaireBinding
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.async
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import java.io.IOException
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -20,6 +29,10 @@ private const val ARG_PARAM2 = "param2"
  */
 class QuestionnaireFragment : Fragment() {
     private lateinit var binding : FragmentQuestionnaireBinding
+
+    private lateinit var repository : OrderRepo
+
+    private lateinit var order : OrderEntity
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
@@ -39,6 +52,45 @@ class QuestionnaireFragment : Fragment() {
         // Inflate the layout for this fragment
         binding = FragmentQuestionnaireBinding.inflate(inflater,container,false)
         return binding.root
+
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.createButton.setOnClickListener{
+            order = OrderEntity(
+                0,
+                binding.mainDishEditText.toString(),
+                binding.beverageEditText.toString(),
+                binding.dessertEditText.toString(),
+                0
+            )
+
+            order.apply {
+                mainCourse = binding.mainDishEditText.toString()
+                beverage = binding.beverageEditText.toString()
+                dessert = binding.dessertEditText.toString()
+                //tableNumber = binding.tableSpinner.id
+                try {
+                    lifecycleScope.launch {
+
+                        val result = async {
+                            repository.createOrder(order)
+
+                        }
+
+                        result.await()
+
+                        withContext(Dispatchers.Main){
+                        }
+                    }
+
+                }catch(e: IOException) {
+                    e.printStackTrace()
+
+                }
+            }
+        }
     }
 
     companion object {
