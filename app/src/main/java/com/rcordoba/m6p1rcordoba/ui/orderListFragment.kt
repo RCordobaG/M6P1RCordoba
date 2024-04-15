@@ -1,20 +1,21 @@
 package com.rcordoba.m6p1rcordoba.ui
 
+import android.graphics.Color
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.rcordoba.m6p1rcordoba.R
+import com.google.android.material.snackbar.Snackbar
 import com.rcordoba.m6p1rcordoba.application.OrdersDBApp
 import com.rcordoba.m6p1rcordoba.data.OrderRepo
 import com.rcordoba.m6p1rcordoba.data.db.model.OrderEntity
 import com.rcordoba.m6p1rcordoba.databinding.FragmentOrderListBinding
-import com.rcordoba.m6p1rcordoba.databinding.FragmentQuestionnaireBinding
 import kotlinx.coroutines.launch
+import org.w3c.dom.Text
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -35,13 +36,24 @@ class orderListFragment : Fragment() {
 
     private lateinit var repository : OrderRepo
     // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    private var mainText: String? = null
+    private var beverageText: String? = null
+    private var dessertText: String? = null
+    private var waiterText: String? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         orderAdapter = OrderAdapter() {selectedOrder ->
+            val dialog = OrderDialog(
+                newOrder = false,
+                order = selectedOrder,
+                updateUI = {
+                    updateUI()
+                }, message = { action ->
+                    message(action)
+                })
 
+            dialog.show(parentFragmentManager, "updateDialog")
         }
         repository = (requireContext().applicationContext as OrdersDBApp).repository
 
@@ -70,6 +82,10 @@ class orderListFragment : Fragment() {
         }
     }
 
+    private fun message(text: String) {
+        Toast.makeText(requireContext(),"text",Toast.LENGTH_SHORT).show()
+    }
+
     companion object {
         /**
          * Use this factory method to create a new instance of
@@ -81,5 +97,10 @@ class orderListFragment : Fragment() {
         @JvmStatic
         fun newInstance() =
             orderListFragment()
+
+        fun newInstance(mainText : String, param2 : String) =
+            orderListFragment().apply {
+
+            }
     }
 }

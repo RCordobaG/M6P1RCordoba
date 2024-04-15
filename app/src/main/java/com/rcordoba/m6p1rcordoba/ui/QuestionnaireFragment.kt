@@ -1,7 +1,6 @@
 package com.rcordoba.m6p1rcordoba.ui
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -40,6 +39,11 @@ class QuestionnaireFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
+    private lateinit var mainText : String
+    private lateinit var beverageText : String
+    private lateinit var dessertText : String
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         repository = (requireContext().applicationContext as OrdersDBApp).repository
@@ -58,39 +62,57 @@ class QuestionnaireFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.createButton.setOnClickListener{
-            order = OrderEntity(
-                0,
-                binding.mainDishEditText.text.toString(),
-                binding.beverageEditText.text.toString(),
-                binding.dessertEditText.text.toString(),
-                binding.tableSpinner.selectedItemPosition,
-                binding.waiterSpinner.selectedItem.toString()
-            )
-
-            try {
-                lifecycleScope.launch {
-
-                    val result = async {
-                        repository.createOrder(order)
-
-                    }
-
-                    result.await()
-
-                    withContext(Dispatchers.Main){
-                    }
-                    Toast.makeText(requireContext(),getString(R.string.toast_create_success),Toast.LENGTH_SHORT).show()
+            mainText = binding.mainDishEditText.text.toString()
+            beverageText = binding.beverageEditText.text.toString()
+            dessertText = binding.dessertEditText.text.toString()
+            if(mainText.isNotEmpty())
+            {
+                if(beverageText.isEmpty())
+                {
+                    beverageText = getString(R.string.beverage_default)
                 }
+                if(dessertText.isEmpty())
+                {
+                    dessertText = getString(R.string.dessert_default)
+                }
+                order = OrderEntity(
+                    0,
+                    mainText,
+                    beverageText,
+                    dessertText,
+                    binding.tableSpinner.selectedItemPosition,
+                    binding.waiterSpinner.selectedItem.toString()
+                )
 
-            }catch(e: IOException) {
-                e.printStackTrace()
-                Toast.makeText(requireContext(),
-                    getString(R.string.toast_create_error),Toast.LENGTH_SHORT).show()
+                try {
+                    lifecycleScope.launch {
 
+                        val result = async {
+                            repository.createOrder(order)
+
+                        }
+
+                        result.await()
+
+                        withContext(Dispatchers.Main){
+                        }
+                        Toast.makeText(requireContext(),getString(R.string.toast_create_success),Toast.LENGTH_SHORT).show()
+                    }
+
+                }catch(e: IOException) {
+                    e.printStackTrace()
+                    Toast.makeText(requireContext(),
+                        getString(R.string.toast_create_error),Toast.LENGTH_SHORT).show()
+
+                }
             }
 
+            else
+            {
+                Toast.makeText(requireContext(),
+                    getString(R.string.main_dish_not_empty),Toast.LENGTH_SHORT).show()
 
-
+            }
         }
 
         binding.showRecyclerButton.setOnClickListener {
